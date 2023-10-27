@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'book/css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Книги</title>
+    {% endif %}
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <h3>Навигация</h3>
+            <ul class="nav">
+                <li><a href="{% url 'home' %}">Главная(О проекте)</a></li>
+                <li><a href="{% url 'book' %}">Каталог книг</a></li>
+            </ul>
+            <ul class="reg">
+                <li>Регистрация</li>
+                <li><a href="/admin/">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+    <footer>
+        <br>
+        <hr>
+        Тут подвал
+    </footer>
+</body>
+</html>

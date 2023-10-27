@@ -1,0 +1,21 @@
+{% extends "book/layout.html" %}
+
+{% block title %}Блог{% endblock %}
+
+{% block content %}
+{% comment %} {% Posts%} {% endcomment %}
+    {% if books %}
+        {% for book in books%}
+            <div class="card">
+                <h3>{{ book.title }}</h3><br>
+                <img src="http://127.0.0.1:8000/media/{{ book.img }}" alt="">
+                <div class="text_book">
+                    <p>{{ book.anons }}</p>
+                    <a>Читать далее</a>
+                </div>
+            </div>
+        {% endfor%}
+    {% else %}
+        <p>Постов нет</p>
+    {% endif %}
+{% endblock %}
